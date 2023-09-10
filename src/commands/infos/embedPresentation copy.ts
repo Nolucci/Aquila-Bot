@@ -4,15 +4,16 @@ import { EmbedBuilder, messageLink } from "discord.js";
 
 export default new Command({
     name: "aquila",
-    description: "replies with presentation of Aquila Studio",
+    description: "Replied : Aquila Studio presentation.",
 
     run: async ({ interaction }) => {
+		
+		const user = interaction.user;
 
 		const embed = new EmbedBuilder()
 		.setColor('White')
-		.setTitle('Aquila Studio')
+		.setTitle('Aquila Studio : Presentation')
 		.setURL('https://github.com/Nolucci/Aquila-Bot/tree/master')
-		.setAuthor({ name: 'Aquila Bot', url: 'https://github.com/Nolucci/Aquila-Bot/tree/master' })
 		.setDescription('Studio créé en 2023 par des étudiants en informatique intéressés par la création de jeux vidéos.')
 		.setThumbnail('https://raw.githubusercontent.com/Nolucci/Aquila-Bot/master/Ressources/Aquila_Logo_grand.png')
 		.addFields(
@@ -22,7 +23,7 @@ export default new Command({
 		)
 		//.setImage('https://raw.githubusercontent.com/Nolucci/Aquila-Bot/master/Ressources/Aquila_Logo_grand.png')
 		.setTimestamp()
-		.setFooter({ text: 'Nolucci', iconURL: 'https://raw.githubusercontent.com/Nolucci/Aquila-Bot/master/Ressources/nolucci_pp.png'});
+		.setFooter({ text : 'Aquila Bot', iconURL: user.avatarURL()});
 
         interaction.reply({embeds: [embed]});
 
